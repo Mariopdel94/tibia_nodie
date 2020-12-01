@@ -7,7 +7,6 @@
 	- [Launching](#launching)
 	- [Main Features](#main-features)
 		- [Magic Level Training in Protection Zone](#magic-level-training-in-protection-zone)
-		- [Auto login](#auto-login)
 		- [Works while minimized](#works-while-minimized)
 		- [Tips and Tricks](#tips-and-tricks)
 			- [Refill your character](#refill-your-character)
@@ -58,12 +57,12 @@ Set up to 4 keys for each of these actions:
 
 With these actions, in a protection zone, your character will safely train magic level while crafting runes and making profit.
 
-### Auto login
+<!-- ### Auto login
 NoDie features a auto login feature in case your internet connection drops while you are away.
 
 The bot will **attempt to keep your character selection screen active** and log back in once internet connection is reestablished. By keeping the selection screen active it is able to relogin without inserting your account name and password.
 
-This way you can go to work and be certain that your character will keep training all day long.
+This way you can go to work and be certain that your character will keep training all day long. -->
 
 ### Works while minimized
 
