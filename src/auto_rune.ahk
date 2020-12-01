@@ -6,6 +6,8 @@ food_keys := ini_read_array("config.ini", "tibia_hotkeys", "food")
 mana_waste_keys := ini_read_array("config.ini", "tibia_hotkeys", "mana_waste")
 ring_keys := ini_read_array("config.ini", "tibia_hotkeys", "ring")
 
+equipped_ring := ini_read("config.ini", "auto_rune", "ring")
+
 SetTimer, FOOD, % -random_k(0, 1)
 SetTimer, BOOTS, % -random_k(2, 3)
 SetTimer, RING, % -random_k(4, 5)
@@ -30,7 +32,10 @@ BOOTS:
 RING:
     Critical
     control_send_random_key_inactive_window(ring_keys, main_char_window)
-    SetTimer, RING, % random_k(452, 455)
+    if (equipped_ring = "ring of healing")
+        SetTimer, RING, % random_k(452, 455)
+    Else
+        SetTimer, RING, % random_k(1202, 1205)
     Return
 
 RUNE:

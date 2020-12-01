@@ -32,6 +32,12 @@ random(ByRef min, ByRef max) {
 	return %r%
 }
 
+send(ByRef key) {
+
+    Send, %key%
+}
+
+
 send_active_window(ByRef key, ByRef window) {
     if !window_active(window)
         return
