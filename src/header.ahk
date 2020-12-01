@@ -1,5 +1,4 @@
 #NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
-#NoTrayIcon
 #Persistent
 #SingleInstance force
 

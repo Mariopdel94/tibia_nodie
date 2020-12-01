@@ -38,10 +38,10 @@ RUNE:
     if (random(1, 10) = 10)
         SetTimer, RUNE, % random_k(2, 5)
     Else
-        SetTimer, RUNE, % random_k(70, 80)
+        SetTimer, RUNE, % random_k(103, 115)
     Return
 
 MANA_WASTE:
     control_send_random_key_inactive_window(mana_waste_keys, main_char_window)
-    SetTimer, MANA_WASTE, % random_k(100, 115)
+    SetTimer, MANA_WASTE, % random_k(130, 145)
     Return

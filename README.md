@@ -31,7 +31,7 @@ Execute *noDie.ahk*.
 
 ## Main Features
 
-### Auto Healer 
+### Auto Healer
 
 ##### Feature suspended for Global server
 Since an update made in October, 2019, the Tibia client prevents any outside software from reading the game window's pixels.
@@ -64,7 +64,7 @@ This feature checks your status box for the paralyze icon and if present, it wil
 It will first check if haste is available, if it is not it will use a healing spell.
 
 ##### Auto Haste (for OT server)
-Makes sure that your character is always hasted. Whenever it can't find the haste icon in your status bar, it will cast a haste spell. 
+Makes sure that your character is always hasted. Whenever it can't find the haste icon in your status bar, it will cast a haste spell.
 
 ### Auto Loot
 You can define a hotkey and character coordinates so that you can use this key to loot all squares adjacent to your character.
@@ -86,14 +86,14 @@ Set up to 4 keys for each of these actions:
 - Use spell to create rune
 	- this feature's timer needs to be changed according to each rune in file auto_rune.ahk
 	- as is, it uses a proper time to craft sudden death runes (70 to 80 secs)
-	- take into consideration how much mana and soul points your character regenerates per sec and how much is needed for your selected rune 
-- Use spell to waste excessive mana 
+	- take into consideration how much mana and soul points your character regenerates per sec and how much is needed for your selected rune
+- Use spell to waste excessive mana
 	- if you are consuming more soul points than you regenerate, you will have superfluos mana that you still want to use to increase magic level
 
-With these actions, in a protection zone, your character will safely train magic level while crafting runes and making profit. 
+With these actions, in a protection zone, your character will safely train magic level while crafting runes and making profit.
 
 ###### Auto login
-NoDie features a auto login feature in case your internet connection drops while you are away. 
+NoDie features a auto login feature in case your internet connection drops while you are away.
 
 The bot will **attempt to keep your character selection screen active** and log back in once internet connection is reestablished. By keeping the selection screen active it is able to relogin without inserting your account name and password.
 
@@ -148,9 +148,111 @@ As BattleEye does not allow bots to be used, every feature in *NoDie* uses some 
 
 - for some actions, up to 4 keys can be registered. In every call, the corresponding method will randomly select one of these to use.
 - the auto-healer's healing period continually changes using *exhaustion_time + small\_random\_number*
-- every action has a *very small random delay* before being performed. This delay is unnoticeable for human eyes. 
+- every action has a *very small random delay* before being performed. This delay is unnoticeable for human eyes.
 
 ## Known Bugs
 Check the *Issues* Tab for known bugs.
 
+## Auto rune
+Change line 41 on `auto_rune.ahk` file on the `RUNE` and change the numbers to the time needed to get the mana of the rune you want to create, and add around 10 seconds for randomness.
 
+For the `MANA WASTE` option add around 30seconds to the values on `RUNE`.
+
+**In tibia:**
+
+On the game add the same action to your `mana waste hotkey` as in the `rune hotkey` (Have 2 hotkeys for the same action of creating a rune) for maximizing your rune creation. If there's a case where the SP doesn't regenerate completely when you create the next batch of runes you will need to add `utana vid` as a `mana waste` option.
+
+You regenerate 1 SP each 16 seconds.
+
+### Rings
+
+* When using `Rings of healing` the time needed is `(452, 455)` (3 seconds of randomness);
+* When using `Life rings` the time needed is `(1202, 1205)` (3 seconds of randomness);
+
+## Runes table
+
+| Rune         | Mana per rune | SP needed |
+| ------------ | :-----------: | :-------: |
+| Paralyze     |     1400      |     3     |
+| Sudden Death |      985      |     5     |
+| Avalanche    |      530      |     3     |
+
+## Mana regeneration tables
+Best time to calculate how mana you regenerate is at 6 seconds.
+
+* Base promoted mage gives you 6MP for each 6 seconds;
+* Soft boots gives you 12MP for each 6 seconds;
+* Rings of healing gives you 24MP for each 6 seconds;
+* Life rings gives you 8MP for each 6 seconds;
+
+**Note:** With the reward system you can double up these numbers.
+
+For 24 periods you will need aprox:
+
+* 6 to 7 soft boots
+* 192 rings of healing
+* ~300 brown mushrooms
+* ~1k blank runes
+
+### Mage with Ring of Healing and Soft boots
+| Seconds | Mana  | Mana with weekly reward |
+| :-----: | :---: | :---------------------: |
+|    6    |  42   |           84            |
+|   12    |  84   |           168           |
+|   18    |  126  |           252           |
+|   24    |  168  |           336           |
+|   30    |  210  |           420           |
+|   36    |  252  |           504           |
+|   42    |  294  |           588           |
+|   48    |  336  |           672           |
+|   54    |  378  |           756           |
+|   60    |  420  |           840           |
+|   66    |  462  |           924           |
+|   72    |  504  |          1008           |
+|   78    |  546  |          1092           |
+|   84    |  588  |          1176           |
+|   90    |  630  |          1260           |
+|   96    |  672  |          1344           |
+|   102   |  714  |          1428           |
+
+### Mage with Life ring and Soft boots
+| Seconds | Mana  | Mana with weekly reward |
+| :-----: | :---: | :---------------------: |
+|    6    |  26   |           52            |
+|   12    |  52   |           104           |
+|   18    |  78   |           156           |
+|   24    |  104  |           208           |
+|   30    |  130  |           260           |
+|   36    |  156  |           312           |
+|   42    |  182  |           364           |
+|   48    |  208  |           416           |
+|   54    |  234  |           468           |
+|   60    |  260  |           520           |
+|   66    |  286  |           572           |
+|   72    |  312  |           624           |
+|   78    |  338  |           676           |
+|   84    |  364  |           728           |
+|   90    |  390  |           780           |
+|   96    |  416  |           832           |
+|   102   |  442  |           884           |
+
+### Mage with only Soft boots
+| Seconds | Mana  | Mana with weekly reward |
+| :-----: | :---: | :---------------------: |
+|    6    |  18   |           36            |
+|   12    |  36   |           72            |
+|   18    |  54   |           108           |
+|   24    |  72   |           144           |
+|   30    |  90   |           180           |
+|   36    |  108  |           216           |
+|   42    |  126  |           252           |
+|   48    |  144  |           288           |
+|   54    |  162  |           324           |
+|   60    |  180  |           360           |
+|   66    |  198  |           396           |
+|   72    |  216  |           432           |
+|   78    |  234  |           468           |
+|   84    |  252  |           504           |
+|   90    |  270  |           540           |
+|   96    |  288  |           576           |
+|   102   |  306  |           612           |
