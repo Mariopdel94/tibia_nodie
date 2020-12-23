@@ -37,6 +37,18 @@ send(ByRef key) {
     Send, %key%
 }
 
+click(byRef x, byRef y, byref mouse_button) {
+
+    SendEvent {Click %x%, %y%, %mouse_button%}
+}
+
+click_random(ByRef x_min, ByRef x_max, ByRef y_min, ByRef y_max, ByRef mouse_button) {
+
+    x := random(x_min, x_max)
+    y := random(y_min, y_max)
+    SendEvent {Click %x%, %y%, %mouse_button%}
+}
+
 
 send_active_window(ByRef key, ByRef window) {
     if !window_active(window)

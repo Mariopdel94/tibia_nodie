@@ -8,7 +8,7 @@ Global sqm := 60
 Global half_sqm := 12 ;less than half sqm
 
 ;char position
-char_x := 870
+char_x := 690
 char_y := 410
 
 auto_loot_hk := ini_read("config.ini", "hotkeys", "auto_loot")
@@ -30,7 +30,7 @@ loot_all(byRef char_x, byref char_y) {
 
     MouseGetPos, mouse_x, mouse_y
 
-    send("{Shift down}")
+    send("{LAlt down}")
     loot(char_x, char_y, 0, 0)   ;center
     loot(char_x, char_y, -1, -1) ;north-west
     loot(char_x, char_y, 0, -1)  ;north
@@ -40,7 +40,7 @@ loot_all(byRef char_x, byref char_y) {
     loot(char_x, char_y, 0, 1)   ;south
     loot(char_x, char_y, -1, 1)  ;south-west
     loot(char_x, char_y, -1, 0)  ;west
-    send("{Shift up}")
+    send("{LAlt up}")
 
     click(mouse_x, mouse_y, 0) ;return mouse to its original position
 }
@@ -54,6 +54,6 @@ loot(x, y, byRef x_sign, byRef y_sign) {
     y_min := y - half_sqm
     y_max := y + half_sqm
 
-    click_random(x_min, x_max, y_min, y_max, "right")
-    random_sleep(11, 14)
+    click_random(x_min, x_max, y_min, y_max, "left")
+    random_sleep(30, 35)
 }
