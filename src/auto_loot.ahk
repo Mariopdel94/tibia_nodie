@@ -9,7 +9,7 @@ Global half_sqm := 12 ;less than half sqm
 
 ;char position
 char_x := 690
-char_y := 410
+char_y := 450
 
 auto_loot_hk := ini_read("config.ini", "hotkeys", "auto_loot")
 
@@ -55,5 +55,5 @@ loot(x, y, byRef x_sign, byRef y_sign) {
     y_max := y + half_sqm
 
     click_random(x_min, x_max, y_min, y_max, "left")
-    random_sleep(30, 35)
+    random_sleep(45, 55)
 }
