@@ -4,12 +4,6 @@ ini_read(ByRef ini_file, ByRef ini_section, ByRef ini_key, ByRef ini_default := 
     return %output_var%
 }
 
-ini_read_array(ByRef ini_file, ByRef ini_section, ByRef ini_key, ByRef ini_default := "error") {
-    IniRead, output_str, %ini_file%, %ini_section%, %ini_key%, %ini_default%
-    arr := StrSplit(output_str, ", ")
-    return %arr%
-}
-
 random_sleep_k(ByRef min, ByRef max) {
 
 	sleep(random_k(min, max))
@@ -61,26 +55,9 @@ sleep(ByRef t) {
     Sleep, %t%
 }
 
-send_random_key(byRef key_array) {
-    send(random_array_element(key_array))
-}
-
-control_send_random_key_window(byRef key_array, ByRef window) {
-    control_send(random_array_element(key_array), window)
-}
-
-random_array_element(ByRef array) {
-    return array[random(1, array.MaxIndex())]
-}
-
-control_send_random_key_active_window(byRef key_array, ByRef window) {
-    if window_active(window)
-        return control_send_random_key_window(key_array, window)
-}
-
-control_send_random_key_inactive_window(byRef key_array, ByRef window) {
+control_send_key_inactive_window(byRef key, ByRef window) {
     if !window_active(window)
-        return control_send_random_key_window(key_array, window)
+        return control_send(key, window)
 }
 
 control_send(ByRef key, ByRef window) {
